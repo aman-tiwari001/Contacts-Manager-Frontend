@@ -11,6 +11,7 @@ import { useState } from 'react';
 function App() {
 
   const [progress, setProgress] = useState(0);
+  const [showAccount, setShowAccount] = useState(false);
 
   return (
     <Router>
@@ -19,8 +20,8 @@ function App() {
       <Routes>
         <Route exact path='/register' element={<Register setProgress={setProgress}/>}/>
         <Route exact path='/login' element={<Login setProgress={setProgress}/>}/>
-        <Route exact path='/home' element={<Home setProgress={setProgress}/>} />
-        <Route exact path='/contact/:id' element={<ContactDetails setProgress={setProgress}/>} />
+        <Route exact path='/' element={<Home setProgress={setProgress}/>} />
+        <Route exact path='/contact/:id' element={<ContactDetails setShowAccount={setShowAccount} setProgress={setProgress}/>} />
       </Routes>
     </Router>
   );

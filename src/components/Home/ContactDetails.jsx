@@ -21,7 +21,7 @@ const ContactDetails = ({ setProgress, setShowAccount }) => {
 	const handleDelete = async () => {
 		setProgress(30);
 		await deleteContact(contact_id);
-		navigate("/home");
+		navigate("/");
 		setProgress(100);
 		toast.success("Contact deleted!");
 	};

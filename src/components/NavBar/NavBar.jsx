@@ -7,6 +7,10 @@ import { getContactsByQuery } from "../../api/contactsAPI";
 const NavBar = ({ setShowAccount, setProgress }) => {
 	const navigate = useNavigate();
 
+	if(!localStorage.getItem('access_token')) {
+		navigate('/register');
+	}
+
 	const [query, setQuery] = useState("");
 	const [searchResults, setSearchResults] = useState([]);
 
@@ -19,7 +23,7 @@ const NavBar = ({ setShowAccount, setProgress }) => {
 	};
 
 	const handleSearch = () => {
-		document.querySelector('.search-box2').style.display = "block"
+		document.querySelector(".search-box2").style.display = "block";
 	};
 
 	return (
@@ -65,9 +69,7 @@ const NavBar = ({ setShowAccount, setProgress }) => {
 							setQuery(e.target.value);
 							if (
 								query.length > 0 &&
-								window.location.href
-									.toString()
-									.includes("/home")
+								window.location.href.toString().includes("/")
 							) {
 								document.querySelector(
 									".contactField-container"
@@ -90,9 +92,7 @@ const NavBar = ({ setShowAccount, setProgress }) => {
 							setQuery(e.target.value);
 							if (
 								query.length > 0 &&
-								window.location.href
-									.toString()
-									.includes("/home")
+								window.location.href.toString().includes("/")
 							) {
 								document.querySelector(
 									".contactField-container"
@@ -132,8 +132,12 @@ const NavBar = ({ setShowAccount, setProgress }) => {
 						alignItems: "center",
 						gap: "15px",
 					}}>
-
-					<img src='/search.png' alt='search' className="search2" onClick={handleSearch} />
+					<img
+						src='/search.png'
+						alt='search'
+						className='search2'
+						onClick={handleSearch}
+					/>
 
 					<img
 						style={{ cursor: "pointer" }}

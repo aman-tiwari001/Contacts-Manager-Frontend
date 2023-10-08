@@ -32,7 +32,7 @@ const Login = ({setProgress}) => {
 			setProgress(100);
 		} else {
 			toast.success("Logged in!");
-			navigate("/home");
+			navigate("/");
 			setProgress(100);
 		}
 	};

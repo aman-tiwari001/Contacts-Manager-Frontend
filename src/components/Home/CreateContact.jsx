@@ -16,7 +16,7 @@ const CreateContact = ({ setShowCreatePopUp }) => {
 			toast.error(res.message);
 		} else {
 			setShowCreatePopUp(false);
-			document.querySelector(".nocontactField-container ").style.zIndex = 1;
+			document.querySelector(".contactField-container").style.zIndex = 0;
 			toast.success("New contact created!");
 		}
 	};
