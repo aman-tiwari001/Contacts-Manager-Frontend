@@ -1,0 +1,22 @@
+.account-container {
+	border: none;
+	border-radius: 15px;
+	background: #f0f4f9;
+	font-size: 0.6vw;
+	position: fixed;
+	top: 60px;
+	right: 40px;
+	padding: 0.5vw 1vw;
+    box-shadow: 3px 3px 5px #e0ebf8;
+}
+
+@media (max-width: 700px) {
+	.account-container {
+		font-size: 2vw;
+		position: fixed;
+		top: 50px;
+		right: 10px;
+		padding: 0.5vw 2vw;
+        z-index: 300;
+	}
+}

@@ -1,0 +1,62 @@
+.name,
+.email,
+.phone {
+	font-size: 1.3vw;
+	color: black;
+	margin: 1.7vw 2.8vw;
+	width: 15vw;
+}
+
+.email,
+.phone {
+	color: rgb(69, 69, 69);
+	width: 16vw;
+}
+
+.contact-photo {
+	width: 3vw;
+	margin-right: 0vw;
+}
+
+.contact-container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 63%;
+	padding-left: 10px;
+	margin: auto;
+}
+
+.contact-container:hover {
+	background: rgb(233, 233, 233);
+	border-radius: 13px;
+	cursor: pointer;
+}
+
+@media (max-width: 700px) {
+	.name {
+		font-size: 6vw;
+        margin: 4vw 4vw;
+        width: 100%;
+	}
+
+	.contact-photo {
+		width: 8.5vw;
+		margin-right: 0vw;
+		padding-left: 5px;
+	}
+
+	.email,
+	.phone {
+		display: none;
+	}
+
+	.contact-container {
+		display: flex;
+		align-items: center;
+		justify-content: left;
+		width: 88%;
+		padding-left: 0;
+		margin: auto;
+	}
+}
