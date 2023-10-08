@@ -3,21 +3,30 @@ import { createContact } from "../../api/contactsAPI";
 import "./CreateContact.css";
 import { toast } from "react-hot-toast";
 
-const CreateContact = ({ setShowCreatePopUp }) => {
+const CreateContact = ({ setShowCreatePopUp, setProgress }) => {
 	const [details, setDetails] = useState({ name: "", phone: "", email: "" });
 	const onChange = (obj) => {
 		setDetails({ ...details, [obj.target.name]: obj.target.value });
 	};
 
 	const handleSave = async () => {
-		const res = await createContact(details);
-		// console.log(res);
-		if (res.message) {
-			toast.error(res.message);
+		if (/[a-zA-Z]/.test(details.phone)) {
+			toast.error("Phone must contain number only!");
 		} else {
-			setShowCreatePopUp(false);
-			document.querySelector(".contactField-container").style.zIndex = 0;
-			toast.success("New contact created!");
+			setProgress(30);
+			const res = await createContact(details);
+			// console.log(res);
+			if (res.message) {
+				setProgress(100);
+				toast.error(res.message);
+			} else {
+				setShowCreatePopUp(false);
+				document.querySelector(
+					".contactField-container"
+				).style.zIndex = 0;
+				setProgress(100);
+				toast.success("New contact created!");
+			}
 		}
 	};
 

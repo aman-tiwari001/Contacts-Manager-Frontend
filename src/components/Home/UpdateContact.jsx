@@ -3,21 +3,25 @@ import { getContactById, updateContact } from "../../api/contactsAPI";
 import "./UpdateContact.css";
 import { toast } from "react-hot-toast";
 
-const UpdateContact = ({ setShowUpdatePopUp, id }) => {
+const UpdateContact = ({ setShowUpdatePopUp, id, setProgress }) => {
 	const [details, setDetails] = useState({ name: "", email: "", phone: "" });
 	const onChange = (obj) => {
 		setDetails({ ...details, [obj.target.name]: obj.target.value });
 	};
 
 	const handleUpdate = async () => {
+		setProgress(30);
 		const res = await updateContact(details, id);
 		// console.log(res);
 		setShowUpdatePopUp(false);
+		setProgress(100);
 		toast.success("Contact updated!");
 	};
 
 	const fetchContact = async () => {
+		setProgress(30)
 		setDetails(await getContactById(id));
+		setProgress(100);
 	};
 
 	useEffect(() => {

@@ -42,6 +42,7 @@ const ContactDetails = ({ setProgress, setShowAccount }) => {
 				<UpdateContact
 					setShowUpdatePopUp={setShowUpdatePopUp}
 					id={contact_id}
+					setProgress={setProgress}
 				/>
 			)}
 			{details && (

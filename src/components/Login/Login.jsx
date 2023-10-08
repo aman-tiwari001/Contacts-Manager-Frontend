@@ -34,6 +34,7 @@ const Login = ({setProgress}) => {
 			toast.success("Logged in!");
 			navigate("/");
 			setProgress(100);
+			window.location.reload();
 		}
 	};
 

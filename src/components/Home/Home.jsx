@@ -63,7 +63,7 @@ const Home = ({ setProgress }) => {
 					<img src='add.png' alt='add' /> <span>New Contact</span>
 				</button>
 				{showCreatePopUp && (
-					<CreateContact setShowCreatePopUp={setShowCreatePopUp} />
+					<CreateContact setShowCreatePopUp={setShowCreatePopUp} setProgress={setProgress}/>
 				)}
 				<div className='contactField-container'>
 					<span className='name1'>Name</span>
